@@ -1,0 +1,34 @@
+[tool.poetry]
+version = "0.0.5"
+name = "coldfront-ingestor"
+authors = [
+  "Lucas Crownover <lcrown@uoregon.edu>",
+]
+description = "This tool gathers slurm association data then formats and dumps it to a file format that Coldfront expects for import."
+readme = "README.md"
+packages = [{include = "cfingestor", from = "src"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.urls]
+Homepage = "https://github.com/uoracs/coldfront-ingestor"
+Issues = "https://github.com/uoracs/coldfront-ingestor/issues"
+
+[virtualenvs]
+in-project = true
+
+[tool.poetry.scripts]
+coldfront-ingestor = "cfingestor.cli:main"
+
+[[tool.poetry.source]]
+name = "testpypi"
+url = "https://test.pypi.org/legacy/"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
