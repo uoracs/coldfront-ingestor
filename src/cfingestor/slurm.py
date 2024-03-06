@@ -22,6 +22,6 @@ def get_raw_association_data() -> dict:
     try:
         return json.loads(s.stdout)
 
-    except json.JSONDecodeError:
+    except json.JSONDecodeError as e:
         logging.error("failed to decode association data")
-        raise Exception("failed to decode association data: {e}")
+        raise Exception(f"failed to decode association data: {e}")
